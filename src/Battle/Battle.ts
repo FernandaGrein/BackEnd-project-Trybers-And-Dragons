@@ -8,5 +8,6 @@
 //     return this.player.lifePoints === -1 ? -1 : 1;
 //   }
 // }
+// 
 
 // export default Battle;
