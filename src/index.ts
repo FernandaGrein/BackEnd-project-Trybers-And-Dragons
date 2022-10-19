@@ -17,9 +17,8 @@ const monster2 = new Dragon();
 const pvp = new PVP(player2, player3);
 const pve = new PVE(player1, [monster1, monster2]);
 
-function runBattles(battles: Battle[]): number[] {
-  const battlesResult = battles.map((fight) => fight.fight());
-  return battlesResult;
+function runBattles(battles: Battle[]): void {
+  battles.forEach((fight) => fight.fight());
 }
 
 export { player1, player2, player3, monster1, monster2, pvp, pve, runBattles };

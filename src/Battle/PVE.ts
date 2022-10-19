@@ -1,4 +1,6 @@
+import Character from '../Character';
 import Fighter, { SimpleFighter } from '../Fighter';
+import Monster from '../Monster';
 import Battle from './Battle';
 
 export default class PVE extends Battle {
@@ -11,14 +13,16 @@ export default class PVE extends Battle {
     this._enemy = enemy;
   }
 
-//   fight(): number {
-//     this._enemy.map((char) => {
-//       while (this._fighter.lifePoints !== -1 || char.lifePoints !== -1) {
-//         this._fighter.attack(char);
-//         char.attack(this._fighter);
-//       }
-//       return this._fighter;
-//     });
-//     return super.fight();
-//   }
+  fight(): number {
+    this._enemy.forEach((char) => {
+      while (this._fighter.lifePoints !== -1 && char.lifePoints !== -1) {
+        this._fighter.attack(char);
+        char.attack(this._fighter);
+      }
+    });
+    return super.fight();
+  }
 }
+
+const bla = new PVE(new Character('lalal'), [new Monster()]);
+bla.fight();
